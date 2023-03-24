@@ -21,22 +21,16 @@ export class App extends Component {
 
 
 
-  haveDoneTask = (taskId) => {
+  haveDoneTask = () => {
     console.log(this.state.tasks.completed);
 
     // this.setState(prevState => ({
-    //   haveDone: prevState.haveDone.filter(task => task.id === taskId)
+    //   tasks: prevState.tasks.filter(task => {
+    //     if (task.id === taskId) {
+
+    //     }
+    //   })
     // }))
-
-    this.setState(prevState => ({
-      tasks: prevState.tasks.filter(task => {
-        if (task.id === taskId) {
-
-        }
-      })
-    }))
-
-
   }
 
   render() {
