@@ -1,14 +1,15 @@
 import React, { Component } from "react";
+import TaskEditor from "./TaskEditor/TaskEditor";
 import ToDoList from "./ToDoList/ToDoList";
 import HaveDoneList from "./HaveDoneList/HaveDoneList";
 
 export class App extends Component {
   state = {
     tasks: [
-      { id: 'id-1', text: 'Вивчити англійську до рівня Advanced', completed: false },
-      { id: 'id-2', text: 'Пробігти марафон', completed: false },
-      { id: 'id-3', text: 'Вивчити React', completed: false },
-      { id: 'id-4', text: 'Отримати водійське посвідчення', completed: false },
+      { id: '01', text: 'Вивчити англійську до рівня Advanced', completed: false },
+      { id: '02', text: 'Пробігти марафон', completed: false },
+      { id: '03', text: 'Вивчити React', completed: false },
+      { id: '04', text: 'Отримати водійське посвідчення', completed: false },
     ],
     haveDone: [],
   }
@@ -20,17 +21,29 @@ export class App extends Component {
   }
 
 
+  toggleCompleted = (taskId) => {
+    this.setState(prevState => ({
+      tasks: prevState.tasks.map(task => {
+        if (taskId === task.id) {
+          return {
+            ...task,
+            completed: !task.completed
+          }
+        }
 
-  haveDoneTask = () => {
-    console.log(this.state.tasks.completed);
+        return task;
+      })
 
-    // this.setState(prevState => ({
-    //   tasks: prevState.tasks.filter(task => {
-    //     if (task.id === taskId) {
+    }))
+  }
 
-    //     }
-    //   })
-    // }))
+  handelChange = (e) => {
+    console.log(e.target.value);
+  }
+
+  handelSubmit = (e) => {
+    e.preventDefault();
+    
   }
 
   render() {
@@ -38,11 +51,10 @@ export class App extends Component {
 
     return (
       <div>
-        <div>
-          <h1>⚡️ TO DO LIST ⚡️</h1>
-          <ToDoList tasks={tasks} onDeleteTask={this.deleteTask} onHaveDoneTask={this.haveDoneTask} />
-        </div>
+        <h1>⚡️ TO DO LIST ⚡️</h1>
 
+        <TaskEditor onHandelChange={this.handelChange} onHandelSubmit={this.handelSubmit} />
+        <ToDoList tasks={tasks} onDeleteTask={this.deleteTask} onToggleCompleted={this.toggleCompleted} />
 
         {
           haveDone.length > 0 && (

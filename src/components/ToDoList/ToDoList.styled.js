@@ -1,13 +1,22 @@
 import styled from "styled-components";
 
+export const ToDoItems = styled.ul`
+`
+
 export const ToDoItem = styled.li`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: center;
     font-size: 22px;
     cursor: grab;
     width: 500px;
+    padding: 8px;
+    border-radius: 8px;
+
+    &:not(:last-child) {
+        margin-bottom: 18px; 
+    }
     
 
     &:hover {
@@ -44,3 +53,8 @@ export const RemoveBtn = styled.button`
 export const Task = styled.p`
     text-align: left;
 `;
+
+export const Checkbox = styled.input`
+    width: 20px;
+    height: 20px;
+`
