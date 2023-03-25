@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import TaskEditor from "./TaskEditor/TaskEditor";
+import { nanoid } from 'nanoid'
+import { TaskEditor } from "./TaskEditor/TaskEditor";
 import ToDoList from "./ToDoList/ToDoList";
 import HaveDoneList from "./HaveDoneList/HaveDoneList";
 
@@ -12,6 +13,21 @@ export class App extends Component {
       { id: '04', text: 'Отримати водійське посвідчення', completed: false },
     ],
     haveDone: [],
+  }
+
+  addTask = (text) => {
+    const task = {
+      id: nanoid(),
+      text,
+      completed: false
+    }
+
+    console.log(task);
+
+    this.setState(prevState => ({
+      tasks: [task, ...prevState.tasks]
+    }))
+
   }
 
   deleteTask = (taskId) => {
@@ -33,18 +49,10 @@ export class App extends Component {
 
         return task;
       })
-
     }))
   }
 
-  handelChange = (e) => {
-    console.log(e.target.value);
-  }
 
-  handelSubmit = (e) => {
-    e.preventDefault();
-    
-  }
 
   render() {
     const { tasks, haveDone } = this.state;
@@ -53,7 +61,8 @@ export class App extends Component {
       <div>
         <h1>⚡️ TO DO LIST ⚡️</h1>
 
-        <TaskEditor onHandelChange={this.handelChange} onHandelSubmit={this.handelSubmit} />
+        <TaskEditor onSubmit={this.addTask} />
+
         <ToDoList tasks={tasks} onDeleteTask={this.deleteTask} onToggleCompleted={this.toggleCompleted} />
 
         {

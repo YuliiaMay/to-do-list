@@ -11,16 +11,18 @@ export const ToDoItem = styled.li`
     font-size: 22px;
     cursor: grab;
     width: 500px;
-    padding: 8px;
-    border-radius: 8px;
+    padding: 12px;
+    border-radius: 12px;
+    
 
     &:not(:last-child) {
-        margin-bottom: 18px; 
+        margin-bottom:24px; 
     }
     
 
     &:hover {
         background-color: #FCFF75;
+        border: 1px solid #000000;
     }
 `
 
