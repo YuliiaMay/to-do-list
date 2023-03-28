@@ -26,8 +26,6 @@ export class App extends Component {
       completed: false
     }
 
-    console.log(task);
-
     this.setState(prevState => ({
       tasks: [task, ...prevState.tasks]
     }))
@@ -83,9 +81,6 @@ export class App extends Component {
     const totalTasksCount = tasks.length;
     const visibleTasks = this.getVisibleTasks();
     const complitedTasksCount = this.getComplitedTasksCount();
-
-    console.log(visibleTasks);
-
 
     return (
       <div>
