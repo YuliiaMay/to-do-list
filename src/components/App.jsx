@@ -7,6 +7,8 @@ import Filter from "./Filter/Filter";
 import Statistics from "./Statistics/Statistics";
 
 
+const TASKS_KEY = 'tasks';
+
 export class App extends Component {
   state = {
     tasks: [
@@ -74,6 +76,20 @@ export class App extends Component {
     return tasks.reduce((total, task) => (task.completed ? total + 1 : total), 0)
   }
 
+  componentDidMount() {
+    const tasks = localStorage.getItem(TASKS_KEY);
+    const parsedTasks = JSON.parse(tasks);
+
+    if (parsedTasks) {
+      this.setState({ tasks: parsedTasks });
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.tasks !== this.state.tasks) {
+      localStorage.setItem(TASKS_KEY, JSON.stringify(this.state.tasks))
+    }
+  }
 
 
   render() {
