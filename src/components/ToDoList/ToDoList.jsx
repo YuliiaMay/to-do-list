@@ -1,6 +1,6 @@
 import React from "react";
-import { ToDoItem, ToDoItems, RemoveBtn, Task, Checkbox } from "./ToDoList.styled";
-
+import { ToDoItem, ToDoItems } from "./ToDoList.styled";
+import Task from "components/Task";
 
 const ToDoList = ({tasks, onDeleteTask, onToggleCompleted}) => (
     <ToDoItems>
@@ -8,13 +8,12 @@ const ToDoList = ({tasks, onDeleteTask, onToggleCompleted}) => (
             tasks.map(({ id, text, completed }) => {
                 return (
                     <ToDoItem key={id} complited={completed}>
-                        <Checkbox
-                            type="checkbox"
-                            checked={completed}
-                            onChange={() => onToggleCompleted(id)}
-                        />
-                        <Task>{text}</Task>
-                        <RemoveBtn type="button" onClick={() => onDeleteTask(id)}>❌</RemoveBtn>
+                        <Task
+                            text={text}
+                            completed={completed}
+                            toggleCompleted={() => onToggleCompleted(id)}
+                            deleteTask={() => onDeleteTask(id)}
+                        /> 
 
                     </ToDoItem>
                 )

@@ -21,6 +21,22 @@ export class App extends Component {
     // haveDone: [],
   }
 
+  
+  componentDidMount() {
+    const tasks = localStorage.getItem(TASKS_KEY);
+    const parsedTasks = JSON.parse(tasks);
+
+    if (parsedTasks) {
+      this.setState({ tasks: parsedTasks });
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.tasks !== this.state.tasks) {
+      localStorage.setItem(TASKS_KEY, JSON.stringify(this.state.tasks))
+    }
+  }
+  
   addTask = (text) => {
     const task = {
       id: nanoid(),
@@ -74,21 +90,6 @@ export class App extends Component {
     const { tasks } = this.state;
       
     return tasks.reduce((total, task) => (task.completed ? total + 1 : total), 0)
-  }
-
-  componentDidMount() {
-    const tasks = localStorage.getItem(TASKS_KEY);
-    const parsedTasks = JSON.parse(tasks);
-
-    if (parsedTasks) {
-      this.setState({ tasks: parsedTasks });
-    }
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.tasks !== this.state.tasks) {
-      localStorage.setItem(TASKS_KEY, JSON.stringify(this.state.tasks))
-    }
   }
 
 
