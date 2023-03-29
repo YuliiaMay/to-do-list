@@ -5,6 +5,7 @@ import ToDoList from "./ToDoList/ToDoList";
 // import HaveDoneList from "./HaveDoneList/HaveDoneList";
 import Filter from "./Filter/Filter";
 import Statistics from "./Statistics/Statistics";
+// import IconButton from "./IconButton/IconButton";
 
 
 const TASKS_KEY = 'tasks';
@@ -36,7 +37,7 @@ export class App extends Component {
       localStorage.setItem(TASKS_KEY, JSON.stringify(this.state.tasks))
     }
   }
-  
+
   addTask = (text) => {
     const task = {
       id: nanoid(),
@@ -102,6 +103,8 @@ export class App extends Component {
     return (
       <div>
         <h1>⚡️ TO DO LIST ⚡️</h1>
+
+        {/* <IconButton /> */}
 
         <TaskEditor onSubmit={this.addTask} />
 
