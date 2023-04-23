@@ -17,10 +17,10 @@ const HabitTracker = lazy(() => import('../pages/HabitTracker'));
 const Calendar = lazy(() => import('../pages/Calendar'));
 const Timer = lazy(() => import('../pages/Timer'));
 const Productivity = lazy(() => import('../pages/Productivity'));
-const ToDoGallery = lazy(() => import('./ToDoGallery/ToDoGallery'));
-const InProgressGallery = lazy(() => import('./InProgressGallery/InProgressGallery'));
-const HaveDoneGallery = lazy(() => import('./HaveDoneGallery/HaveDoneGallery'));
-const AllTastsGallery = lazy(() => import('./AllTastsGallery/AllTastsGallery'));
+const ToDoGallery = lazy(() => import('./Plans/ToDoGallery/ToDoGallery'));
+const InProgressGallery = lazy(() => import('./Plans/InProgressGallery/InProgressGallery'));
+const HaveDoneGallery = lazy(() => import('./Plans/HaveDoneGallery/HaveDoneGallery'));
+const AllTastsGallery = lazy(() => import('./Plans/AllTastsGallery/AllTastsGallery'));
 
 
 
