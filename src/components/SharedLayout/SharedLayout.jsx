@@ -1,6 +1,6 @@
 import { Suspense } from "react";
-import { Link, NavLink, Outlet } from "react-router-dom";
-import { Container, Header } from "./SharedLayout.styled";
+import {  Outlet } from "react-router-dom";
+import { Container, Header, HeaderBase, Logo, Message, AccLink, UserIcon, UserName, HeaderNav, StyledLink } from "./SharedLayout.styled";
 // import Loader from "components/Loader/Loader";
 // import scrollPageDown from "helpers/Scroll";
 import { TbUserCircle } from "react-icons/tb";
@@ -8,31 +8,33 @@ import { TbUserCircle } from "react-icons/tb";
 
 export const SharedLayout = () => {
     return (
-        <Container>
+        <>
             <Header>
-                <div>
-                    <span>Plan!</span>
-                    <span>some messages</span>
-                    <Link path="/:userName">
-                        <button><TbUserCircle /></button>
-                        <p>user name</p>
-                    </Link>
-                </div>
+                <Container>
+                    <HeaderBase>
+                        <Logo>Plan!</Logo>
+                        <Message>Get what you want!</Message>
+                        <AccLink path="/:userName">
+                            <UserIcon><TbUserCircle size={38} /></UserIcon>
+                            <UserName>user name</UserName>
+                        </AccLink>
+                    </HeaderBase>
 
-                <nav>
-                    <NavLink to="/">Home</NavLink>
-                    <NavLink to="/planner">Planner</NavLink>
-                    <NavLink to="/notes">Notes</NavLink>
-                    <NavLink to="/habit-tracker">Tracker</NavLink>
-                    <NavLink to="/calendar">Calendar</NavLink>
-                    <NavLink to="/timer">Timer</NavLink>
-                    <NavLink to="/productivity">Productivity</NavLink>
-                </nav>
+                    <HeaderNav>
+                        <StyledLink to="/">Home</StyledLink>
+                        <StyledLink to="/planner">Planner</StyledLink>
+                        <StyledLink to="/notes">Notes</StyledLink>
+                        <StyledLink to="/habit-tracker">Tracker</StyledLink>
+                        <StyledLink to="/calendar">Calendar</StyledLink>
+                        <StyledLink to="/timer">Timer</StyledLink>
+                        <StyledLink to="/productivity">Productivity</StyledLink>
+                    </HeaderNav>
+                </Container>
             </Header>
 
             <Suspense fallback={<>loading...</>}>
                 <Outlet />
             </Suspense>
-        </Container>
+        </>
     );
 };
