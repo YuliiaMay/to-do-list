@@ -1,5 +1,5 @@
 import { lazy } from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { SharedLayout } from "./SharedLayout/SharedLayout";
 
 // import { nanoid } from 'nanoid'
