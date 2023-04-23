@@ -1,26 +1,8 @@
 import styled from "styled-components";
 import { NavLink, Link } from "react-router-dom";
 
-// export const Container = styled.div`
-//     // height: 100%;
-//     // font-size: 32px;
-//     // color: #010101;
-//     // background-color: #FFE6D7;
-//     // margin: 0 auto;
-//     padding: 0 16px;
-// `;
 
 export const Header = styled.header`
-    // display: flex;
-    // align-items: center;
-    // justify-content: space-between;
-    // gap: 12px;
-    // padding: 16px 0;
-    // margin-bottom: 16px;
-    // border-bottom: 1px solid #446381;
-    // > nav {
-    //     display: flex;
-    // }
     padding: 16px 0;
 `;
 
@@ -46,6 +28,7 @@ export const Logo = styled.span`
     font-size: 48px;
     color: #2B2B2B;
     margin-right: 30px;
+
 
 `;
 
@@ -93,9 +76,16 @@ export const StyledLink = styled(NavLink)`
     text-decoration: none;
     font-family: Walter Turncoat;
     font-size: 18px;
-    color: #414141;
+    color: #2B2B2B;
 
     &.active {
+        color: #4113A4;
+        text-shadow: #42EF87 1px 1px 10px;
+    }
+
+    &:hover,
+    &:focus {
+        // text-shadow: #42EF87 1px 1px 10px;
         color: #4113A4;
     }
 `;

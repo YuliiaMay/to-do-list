@@ -1,17 +1,21 @@
-import { Link } from "react-router-dom";
-import { Container } from "./PlansNav.styled";
-
+import { Container, NavText, PlansNavSection, Nav, StyledLink } from "./PlansNav.styled";
+import AddTaskBtn from "../AddTaskBtn/AddTaskBtn";
 
 const PlansNav = () => {
     return (
-        <Container>
-            <nav>
-                <Link to="to-do" >To-Do</Link>
-                <Link to="in-progress" >In-Progress</Link>
-                <Link to="have-done" >Have-Done</Link>
-                <Link to="all" >All</Link>
-            </nav>
-        </Container>
+        <PlansNavSection>
+            <Container>
+                <NavText>Select the display method:</NavText>
+                <Nav>
+                    <StyledLink to="to-do" >To-Do</StyledLink>
+                    <StyledLink to="in-progress" >In-Progress</StyledLink>
+                    <StyledLink to="have-done" >Have-Done</StyledLink>
+                    <StyledLink to="all" >All</StyledLink>
+                </Nav>
+                <AddTaskBtn />
+                
+            </Container>
+        </PlansNavSection>
     )
 };
 
