@@ -1,5 +1,6 @@
 import { lazy } from "react";
 import { Routes, Route, Link } from "react-router-dom";
+import { SharedLayout } from "./SharedLayout/SharedLayout";
 
 // import { nanoid } from 'nanoid'
 // import { TaskEditor } from "./TaskEditor/TaskEditor";
@@ -16,33 +17,39 @@ const HabitTracker = lazy(() => import('../pages/HabitTracker'));
 const Calendar = lazy(() => import('../pages/Calendar'));
 const Timer = lazy(() => import('../pages/Timer'));
 const Productivity = lazy(() => import('../pages/Productivity'));
+const ToDoGallery = lazy(() => import('./ToDoGallery/ToDoGallery'));
+const InProgressGallery = lazy(() => import('./InProgressGallery/InProgressGallery'));
+const HaveDoneGallery = lazy(() => import('./HaveDoneGallery/HaveDoneGallery'));
+const AllTastsGallery = lazy(() => import('./AllTastsGallery/AllTastsGallery'));
+
+
 
 
 export const App = () => {
   return (
     <>
-      <nav>
-        <Link to="/" end>Home</Link>
-        <Link to="/account">UserAccount</Link>
-      </nav>
-
-      
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/account" element={<UserAccount />} />
-
-        
-        <Route path="/planner" element={<Planner />} />
-        <Route path="/planner/:taskId" element={<TaskDetails />}/>
-
-        
-        <Route path="/notes" element={<Notes />} />
-        <Route path="/habit-tracker" element={<HabitTracker />} />
-        <Route path="/calendar" element={<Calendar />} />
-        <Route path="/timer" element={<Timer />} />
-        <Route path="/productivity" element={<Productivity />} />
-        {/* <Route path="*" element={<NotFound />} /> */}
-        <Route path="*" element={<Home />} />
+        <Route path="/" element={<SharedLayout />}>
+          <Route index element={<Home />} />
+          <Route path="/:userName" element={<UserAccount />} />
+          
+      
+          <Route path="/planner" element={<Planner />}>
+            <Route path="to-do" element={<ToDoGallery />} />
+            <Route path="in-progress" element={<InProgressGallery />} />
+            <Route path="have-done" element={<HaveDoneGallery />} />
+            <Route path="all" element={<AllTastsGallery />}/>
+          </Route>
+          <Route path="/planner/:taskId" element={<TaskDetails />}/>
+          
+          <Route path="/notes" element={<Notes />} />
+          <Route path="/habit-tracker" element={<HabitTracker />} />
+          <Route path="/calendar" element={<Calendar />} />
+          <Route path="/timer" element={<Timer />} />
+          <Route path="/productivity" element={<Productivity />} />
+          {/* <Route path="*" element={<NotFound />} /> */}
+          <Route path="*" element={<Home />} />          
+        </Route>
       </Routes>
     </>
   )
