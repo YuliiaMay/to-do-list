@@ -25,9 +25,9 @@ export const toggleCompleted = taskId => {
     };
 };
 
-export const setStatusFilter = value => {
+export const setFilteredByStatus = value => {
     return {
-        type: "planner/setStatusTasks",
+        type: "planner/setFilteredByStatus",
         payload: value,
     };
 };

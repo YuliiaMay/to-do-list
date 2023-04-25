@@ -41,18 +41,18 @@ export const Message = styled.span`
 
 export const AccLink = styled(Link)`
     margin-left: auto;
-    padding: 0px 12px;
+    // padding: 0px 12px;
     width: 200px;
-    border: 1px solid #414141;
-    border-radius: 20px;
+    // border: 1px solid #414141;
+    // border-radius: 20px;
     display: flex;
     gap: 12px;
-    justify-content: flex-start;
+    justify-content: flex-end;
     align-items: center;
     text-decoration: none;
 `;
 
-export const UserIcon = styled.svg`
+export const UserIcon = styled.div`
     width: 38px;
     height: 38px;
     color: #2B2B2B;
@@ -63,7 +63,12 @@ export const UserName = styled.p`
     font-size: 18px;
     
     color: #2B2B2B;
-    margin-right: 30px;
+    // margin-right: 30px;
+
+    &:hover,
+    &:focus {
+        color: #4113A4;
+    }
 `;
 
 export const HeaderNav = styled.nav`

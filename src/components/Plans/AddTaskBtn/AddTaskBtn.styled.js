@@ -54,9 +54,9 @@ export const AddTaskText = styled.span`
     color: #4113A4;
 
     transition-property: display;
-    transition-duration: 1000ms;
+    transition-duration: 500ms;
     transition-timing-function: linear;
-    transition-delay: 250ms;
+    transition-delay: 500ms;
 
 
 
