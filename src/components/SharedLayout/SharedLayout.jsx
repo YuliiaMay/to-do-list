@@ -23,11 +23,11 @@ export const SharedLayout = () => {
                     <HeaderNav>
                         <StyledLink to="/">Home</StyledLink>
                         <StyledLink to="/planner">Planner</StyledLink>
-                        <StyledLink to="/notes">Notes</StyledLink>
+                        {/* <StyledLink to="/notes">Notes</StyledLink>
                         <StyledLink to="/habit-tracker">Tracker</StyledLink>
                         <StyledLink to="/calendar">Calendar</StyledLink>
                         <StyledLink to="/timer">Timer</StyledLink>
-                        <StyledLink to="/productivity">Productivity</StyledLink>
+                        <StyledLink to="/productivity">Productivity</StyledLink> */}
                     </HeaderNav>
                 </Container>
             </Header>

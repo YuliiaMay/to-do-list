@@ -12,11 +12,11 @@ const Home = lazy(() => import('../pages/Home'));
 const UserAccount = lazy(() => import('../pages/UserAccount'));
 const Planner = lazy(() => import('../pages/Planner'));
 const TaskDetails = lazy(() => import('../pages/TaskDetails'));
-const Notes = lazy(() => import('../pages/Notes'));
-const HabitTracker = lazy(() => import('../pages/HabitTracker'));
-const Calendar = lazy(() => import('../pages/Calendar'));
-const Timer = lazy(() => import('../pages/Timer'));
-const Productivity = lazy(() => import('../pages/Productivity'));
+// const Notes = lazy(() => import('../pages/Notes'));
+// const HabitTracker = lazy(() => import('../pages/HabitTracker'));
+// const Calendar = lazy(() => import('../pages/Calendar'));
+// const Timer = lazy(() => import('../pages/Timer'));
+// const Productivity = lazy(() => import('../pages/Productivity'));
 const ToDoGallery = lazy(() => import('./Plans/ToDoGallery/ToDoGallery'));
 const InProgressGallery = lazy(() => import('./Plans/InProgressGallery/InProgressGallery'));
 const HaveDoneGallery = lazy(() => import('./Plans/HaveDoneGallery/HaveDoneGallery'));
@@ -30,7 +30,11 @@ export const App = () => {
     <>
       <Routes>
         <Route path="/" element={<SharedLayout />}>
+
+
           <Route index element={<Home />} />
+
+
           <Route path="/:userName" element={<UserAccount />} />
           
       
@@ -42,11 +46,12 @@ export const App = () => {
           </Route>
           <Route path="/planner/:taskId" element={<TaskDetails />}/>
           
-          <Route path="/notes" element={<Notes />} />
+          {/* <Route path="/notes" element={<Notes />} />
           <Route path="/habit-tracker" element={<HabitTracker />} />
           <Route path="/calendar" element={<Calendar />} />
           <Route path="/timer" element={<Timer />} />
-          <Route path="/productivity" element={<Productivity />} />
+          <Route path="/productivity" element={<Productivity />} /> */}
+
           {/* <Route path="*" element={<NotFound />} /> */}
           <Route path="*" element={<Home />} />          
         </Route>

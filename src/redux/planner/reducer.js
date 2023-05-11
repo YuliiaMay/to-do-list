@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
+import { createReducer } from "@reduxjs/toolkit";
 import { statusTasks } from "../planner/constants";
-
+import { addTask, deleteTask, toggleCompleted, setFiltereByStatus } from "./actions";
 // Початкове значення стану Redux для кореневого редюсера,
 // якщо не передати параметр preloadedState.
 // const initialState = {
@@ -26,44 +27,33 @@ const tasksInitialState = [
     { id: 4, text: "Build amazing apps", completed: false },
 ];
 
-export const tasksReducer = (state = tasksInitialState, action) => {
-    switch (action.type) {
-        case "planner/addTask":
-            return [...state, action.payload];
-        case "planner/deleteTask":
-            return state.filter(task => task.id !== action.payload);
-        case "planner/toggleCompleted":
-            return state.map(task => {
-                if (task.id !== action.payload) {
-                    return task;
-                }
-                return { ...task, completed: !task.completed };
-        });
-        default:
-        return state;
-    }
-};
+export const tasksReducer = createReducer(tasksInitialState, {
+    [addTask]: (state, action) => {
+        // ✅ Immer замінить це на операцію оновлення
+        state.push(action.payload);
+    },
+    [deleteTask]: (state, action) => {
+        // ✅ Immer замінить це на операцію оновлення
+        const index = state.findIndex(task => task.id === action.payload);
+        state.splice(index, 1);
+    },
+    [toggleCompleted]: (state, action) => {
+        // ✅ Immer замінить це на операцію оновлення
+        for (const task of state) {
+            if (task.id === action.payload) {
+                task.completed = !task.completed;
+            }
+        }
+    },
+});
 
 
 const filteredByStatusInitialState = {
-    status: filteredByStatus.toDo,
+    status: statusTasks.toDo,
 };
 
-export const filteredByStatus = (state = filteredByStatusInitialState, action) => {
-    switch (action.type) {
-        case "planner/setFilteredByStatus":
-            return {
-                ...state,
-                status: action.payload,
-            };
-    
-        default:
-            return state;
+export const filteredByStatusReduser = createReducer(filteredByStatusInitialState, {
+    [setFiltereByStatus]: (state, action) => {
+        state.status = action.payload;
     }
-}
-
-// Поки що використовуємо редюсер який
-// тільки повертає отриманий стан
-// export const rootReducer = (state = initialState, action) => {
-//     return state;
-// };
+})
