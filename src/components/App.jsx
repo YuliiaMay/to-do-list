@@ -10,7 +10,7 @@ import { SharedLayout } from "./SharedLayout/SharedLayout";
 
 const Home = lazy(() => import('../pages/Home'));
 const UserAccount = lazy(() => import('../pages/UserAccount'));
-const Planner = lazy(() => import('../pages/Planner'));
+const PlannerPage = lazy(() => import('../pages/Planner/PlannerPage'));
 const TaskDetails = lazy(() => import('../pages/TaskDetails'));
 // const Notes = lazy(() => import('../pages/Notes'));
 // const HabitTracker = lazy(() => import('../pages/HabitTracker'));
@@ -38,11 +38,12 @@ export const App = () => {
           <Route path="/:userName" element={<UserAccount />} />
           
       
-          <Route path="/planner" element={<Planner />}>
+          <Route path="/planner" element={<PlannerPage />}>
             <Route path="to-do" element={<ToDoGallery />} />
             <Route path="in-progress" element={<InProgressGallery />} />
             <Route path="have-done" element={<HaveDoneGallery />} />
-            <Route path="all" element={<AllTastsGallery />}/>
+            <Route path="all" element={<AllTastsGallery />} />
+            
           </Route>
           <Route path="/planner/:taskId" element={<TaskDetails />}/>
           

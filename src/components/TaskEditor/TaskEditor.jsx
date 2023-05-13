@@ -1,44 +1,67 @@
-import React, { Component } from "react";
+import React from 'react';
+import { Formik } from 'formik';
 
-
-export class TaskEditor extends Component {
-    state = {
-        newTask: '',
-    };
-
-    handelChange = ({target: { value }}) => {
-        this.setState({
-            newTask: value,
-        })
-    }
-
-
-    handelSubmit = (e) => {
-        e.preventDefault();
-
-        this.props.onSubmit(this.state.newTask);
-
-        this.reset();
-    }
-
-
-    reset() {
-        this.setState({ newTask: '' })
-    }
-
-
-    render() {
-        return (
-            <form onSubmit={this.handelSubmit}>
-                <input
-                    type="text"
-                    name='text'
-                    value={this.state.newTask}
-                    onChange={this.handelChange}
-
-                />
-                <button type="submit">Create</button>
-            </form>
-        )
-    }
+const initialValues = {
+    title: '',
+    category: '',
+    performer: '',
+    deadline: '',
+    priority: '',
+    status: '',
+    note: ''
 }
+const TaskEditor = () => {
+    return (
+        <div>
+            <h1>Create task</h1>
+            <Formik>
+                initialValues={initialValues}
+                <form autoComplete='on'>
+                    <label>
+                        <input type="text" name="title" placeholder="do shopping" autofocus />
+                    </label>
+                    
+                    <label>
+                        Deadline
+                        <input type="date" name="deadline"/>
+                    </label>
+
+                    <p>Choose a status</p>
+                    <label>
+                        <input type="radio" name="status" />
+
+                    </label>
+                    <label>
+                        <input type="radio" name="status" />
+                    </label>                    
+                    <label>
+                        <input type="radio" name="status" />
+                    </label>
+
+                    <label>
+                        Set priority:
+                        <input
+                            type="range"
+                            name="priority"
+                            value="40"
+                            min="0"
+                            max="100"
+                            step="10"
+                        />
+                    </label>
+
+                    <label>
+                        Note
+                        <textarea name="note" rows="5" placeholder="Describe the task here..."></textarea>
+                    </label>
+
+                    <button type="submit">Save</button>
+                </form>
+
+            </Formik>
+        </div>
+
+    )
+};
+
+export default TaskEditor;

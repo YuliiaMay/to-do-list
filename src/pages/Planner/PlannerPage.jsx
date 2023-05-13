@@ -1,7 +1,7 @@
 import PlansNav from "components/Plans/PlansNav/PlansNav";
 
 
-const Planner = () => {
+const PlannerPage = () => {
     return (
         <>
             <PlansNav />
@@ -10,4 +10,4 @@ const Planner = () => {
     )
 };
 
-export default Planner;
+export default PlannerPage;
