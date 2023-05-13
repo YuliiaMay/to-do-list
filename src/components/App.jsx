@@ -21,7 +21,7 @@ const ToDoGallery = lazy(() => import('./Plans/ToDoGallery/ToDoGallery'));
 const InProgressGallery = lazy(() => import('./Plans/InProgressGallery/InProgressGallery'));
 const HaveDoneGallery = lazy(() => import('./Plans/HaveDoneGallery/HaveDoneGallery'));
 const AllTastsGallery = lazy(() => import('./Plans/AllTastsGallery/AllTastsGallery'));
-
+const TaskEditor = lazy(() => import('./TaskEditor/TaskEditor'));
 
 
 
@@ -43,7 +43,7 @@ export const App = () => {
             <Route path="in-progress" element={<InProgressGallery />} />
             <Route path="have-done" element={<HaveDoneGallery />} />
             <Route path="all" element={<AllTastsGallery />} />
-            
+            <Route path="task-editor" element={<TaskEditor />} />
           </Route>
           <Route path="/planner/:taskId" element={<TaskDetails />}/>
           

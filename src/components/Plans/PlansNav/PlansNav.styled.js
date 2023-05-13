@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 export const PlansNavSection = styled.section`
     padding: 32px 0;
@@ -53,3 +53,9 @@ export const StyledLink = styled(NavLink)`
         color: #fff;
     }
 `;
+
+
+export const CreateTaskLink = styled(Link)`
+    text-decoration: none;
+`;
+

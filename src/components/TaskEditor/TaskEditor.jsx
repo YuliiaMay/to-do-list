@@ -11,6 +11,7 @@ const initialValues = {
     note: ''
 }
 const TaskEditor = () => {
+    console.log("work");
     return (
         <div>
             <h1>Create task</h1>

@@ -1,4 +1,4 @@
-import { Container, NavText, PlansNavSection, Nav, StyledLink } from "./PlansNav.styled";
+import { Container, NavText, PlansNavSection, Nav, StyledLink, CreateTaskLink } from "./PlansNav.styled";
 import AddTaskBtn from "../AddTaskBtn/AddTaskBtn";
 
 const PlansNav = () => {
@@ -11,9 +11,10 @@ const PlansNav = () => {
                     <StyledLink to="in-progress" >In-Progress</StyledLink>
                     <StyledLink to="have-done" >Have-Done</StyledLink>
                     <StyledLink to="all" >All</StyledLink>
+                    
                 </Nav>
-                <AddTaskBtn />
                 
+                <CreateTaskLink to="task-editor" ><AddTaskBtn /></CreateTaskLink>
             </Container>
         </PlansNavSection>
     )
