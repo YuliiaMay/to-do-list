@@ -1,22 +1,23 @@
 import React from 'react';
 import { Formik } from 'formik';
 
-const initialValues = {
-    title: '',
-    category: '',
-    performer: '',
-    deadline: '',
-    priority: '',
-    status: '',
-    note: ''
-}
+// const initialValues = {
+//     title: '',
+//     category: '',
+//     performer: '',
+//     deadline: '',
+//     priority: '',
+//     status: '',
+//     note: ''
+// }
+
 const TaskEditor = () => {
     console.log("work");
     return (
         <div>
             <h1>Create task</h1>
             <Formik>
-                initialValues={initialValues}
+                {/* initialValues={{title: ''}} */}
                 <form autoComplete='on'>
                     <label>
                         <input type="text" name="title" placeholder="do shopping" autofocus />
@@ -44,7 +45,7 @@ const TaskEditor = () => {
                         <input
                             type="range"
                             name="priority"
-                            value="40"
+
                             min="0"
                             max="100"
                             step="10"

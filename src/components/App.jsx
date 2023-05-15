@@ -8,10 +8,10 @@ import { SharedLayout } from "./SharedLayout/SharedLayout";
 // import Filter from "./Filter/Filter";
 // import Statistics from "./Statistics/Statistics";
 
-const Home = lazy(() => import('../pages/Home'));
-const UserAccount = lazy(() => import('../pages/UserAccount'));
+const Home = lazy(() => import('../pages/Other/Home'));
+const UserAccount = lazy(() => import('../pages/Other/UserAccount'));
 const PlannerPage = lazy(() => import('../pages/Planner/PlannerPage'));
-const TaskDetails = lazy(() => import('../pages/TaskDetails'));
+const TaskDetails = lazy(() => import('../pages/Other/TaskDetails'));
 // const Notes = lazy(() => import('../pages/Notes'));
 // const HabitTracker = lazy(() => import('../pages/HabitTracker'));
 // const Calendar = lazy(() => import('../pages/Calendar'));
@@ -30,14 +30,10 @@ export const App = () => {
     <>
       <Routes>
         <Route path="/" element={<SharedLayout />}>
-
-
           <Route index element={<Home />} />
-
 
           <Route path="/:userName" element={<UserAccount />} />
           
-      
           <Route path="/planner" element={<PlannerPage />}>
             <Route path="to-do" element={<ToDoGallery />} />
             <Route path="in-progress" element={<InProgressGallery />} />
