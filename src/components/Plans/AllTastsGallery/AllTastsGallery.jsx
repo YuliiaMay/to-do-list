@@ -1,6 +1,14 @@
+
+
 const AllTastsGallery = () => {
+
+
     return (
-        <div>AllTastsGallery</div>
+        <div>
+
+
+            {/* <div>work</div> */}
+        </div>
     )
 };
 

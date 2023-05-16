@@ -1,4 +1,4 @@
-import { lazy } from "react";
+import { lazy, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { SharedLayout } from "./SharedLayout/SharedLayout";
 
@@ -26,6 +26,9 @@ const TaskEditor = lazy(() => import('./Plans/TaskEditor/TaskEditor'));
 
 
 export const App = () => {
+  // useEffect(() => {
+    
+  // }, [])
   return (
     <>
       <Routes>

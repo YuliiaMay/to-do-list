@@ -1,5 +1,5 @@
 const ToDoGallery = () => {
-    console.log("loaded");
+    // console.log(tasks);
     return (
         <div>ToDoGallery</div>
     )

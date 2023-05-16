@@ -1,5 +1,6 @@
 import React from 'react';
 import { Formik } from 'formik';
+import { useAddTaskMutation } from 'redux/planner/tasksApi';
 
 // const initialValues = {
 //     title: '',
@@ -12,15 +13,20 @@ import { Formik } from 'formik';
 // }
 
 const TaskEditor = () => {
-    console.log("work");
+    const {data, isFetching} = useAddTaskMutation();
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        
+    }
     return (
         <div>
             <h1>Create task</h1>
             <Formik>
                 {/* initialValues={{title: ''}} */}
-                <form autoComplete='on'>
+                <form autoComplete='off'>
                     <label>
-                        <input type="text" name="title" placeholder="do shopping" autofocus />
+                        <input type="text" name="title" placeholder="do shopping" autoFocus />
                     </label>
                     
                     <label>
@@ -62,7 +68,6 @@ const TaskEditor = () => {
 
             </Formik>
         </div>
-
     )
 };
 
